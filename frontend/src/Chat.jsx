@@ -61,7 +61,7 @@ const WebSocketChat = () => {
     return (
         <div className="wrapper">
             <div>
-                <h2 style={{ color: '#03101d', fontFamily: "sans-serif" }}>AI Chat</h2>
+                <h2 style={{ margin: '0.5em', color: '#03101d', fontFamily: "sans-serif" }}>AI Chat</h2>
             </div>
 
             <div className={`status ${
@@ -70,6 +70,13 @@ const WebSocketChat = () => {
             }`}>
                 Websocket status: {connectionStatus}
             </div>
+
+            {window.location.port === '5173' ? (
+                <div className="messages">
+                    <span className="prompt">Hi! How is going on?</span>
+                    <span className="response">Oh, thank you for asking. I'm doing well. How about you?</span>
+                </div>
+            ) : null}
 
             {responseMessages.map((item, index) => (
                 <div key={index} className="messages">
